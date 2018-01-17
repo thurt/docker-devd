@@ -16,6 +16,6 @@ RUN curl -L https://github.com/cortesi/devd/releases/download/v${DEVD_VERSION}/d
 
 COPY . .
 
-VOLUME ["/static"]
-
-CMD ["/usr/local/bin/devd", "-A0.0.0.0", "./static"]
+EXPOSE 8000/TCP
+ENTRYPOINT ["/usr/local/bin/devd", "--address=0.0.0.0", "--port=8000"]
+CMD ["/static"]
